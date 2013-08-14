@@ -83,7 +83,7 @@ char *StrToUpper(char *s)
 }
 int main(int argc,char *argv[])
 {
-    char *optkey;
+    char *optkey,*buff;
     srand((unsigned int)time(NULL));
     if(argc<3){
 	printf("Usage： otp.o <option> <text> <OPT Key>\n");
@@ -107,7 +107,8 @@ int main(int argc,char *argv[])
         printf("Original: %s\n", decode(argv[2],argv[3]));
     }else{/*encode*/
 	printf("Original: %s\n", argv[2]);
-	optkey=(char *)calloc(strlen(argv[2]), sizeof(char));
+	buff=(char *)calloc(strlen(argv[2]), sizeof(char));
+    	optkey=buff;
 	if(optkey == NULL) {
  	    exit(EXIT_FAILURE);
    	}
