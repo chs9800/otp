@@ -115,7 +115,7 @@ int main(int argc,char *argv[])
 	OptGen(optkey,strlen(argv[2]));
 	printf("OTP\tkey: %s\n", optkey);
 	printf("Encrypted String: %s\n", encode(argv[2],optkey));
-	free(optkey);
+	free(buff);
     }
     return OK;
 }
