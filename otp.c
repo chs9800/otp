@@ -48,7 +48,7 @@ char *encode(char *s, char *otpkey)
     char *p;                     /* 作業用ポインタ */
     for (p = s; *p; p++){         /* pがヌルでなければ */
         *p = (((*p - 65) + (*otpkey - 65)) % 26)+65;
-	*otpkey++;
+	otpkey++;
     }        
     return (s);                  
 }
@@ -61,7 +61,7 @@ char *decode(char *s, char *otpkey)
 	    *p+=26;
 	}
 	*p+=65;
-	*otpkey++;
+	otpkey++;
     }
     return (s);                  
 }
@@ -88,7 +88,7 @@ int main(int argc,char *argv[])
     if(argc<3){
 	printf("Usage： otp.o <option> <text> <OPT Key>\n");
 	printf("<option>\n  -d decode.\n  -e encode\n");
-	printf("<Sample>\n  otp.o -d GOFUT ZKUJF\n  otp.o -e HELLO ZKUJF\n");
+	printf("<Sample>\n  otp.o -d GOFUT ZKUJF\n  otp.o -e HELLO\n");
 	return NG;
     }
     if(isStrAlpha(argv[2]) != OK){
